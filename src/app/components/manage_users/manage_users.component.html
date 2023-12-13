@@ -1,0 +1,33 @@
+
+<h2 style="color:aliceblue ; text-align: center;font-size: 22px;margin-top: 2%;">Employee Login Info</h2><br>
+                <div class="table-responsive" >
+                    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table row-border hover">
+                        <thead>
+                          <tr>
+                            <th>S.No</th>
+                            <th>User Id</th>
+                            <th>User Name</th>
+                            <th>Email</th>
+                            <th>PhoneNo</th>
+                            <th>Role</th>
+                            <th>Rate/Hour</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let user of UserData; let i=index">
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ user.usrId }}</td>
+                            <td contenteditable="true" (input)="onUserNameEdit($event)">{{ user.usrFullName }}</td>
+                            <td contenteditable="true" (input)="onUserEmailEdit($event)">{{ user.usrEmail }}</td>
+                            <td contenteditable="true" (input)="onUserPhoneNoEdit($event)">{{ user.usrPhoneNo }}</td>
+                            <td contenteditable="true" (input)="onUserRoleEdit($event)">{{ user.usrJobRole }}</td>
+                            <td contenteditable="true" (input)="onUserRateEdit($event)">{{ user.ratePerHour }}</td>
+                            <td style="display: flex;">
+                              <a class="btn btn-info" (click)="onAccept(user)">Edit</a><br>
+                              <a style="color: #fff; margin-left: 3%;" class="btn btn-danger" (click)="Reject(user)">Delete</a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>                      
+                </div>

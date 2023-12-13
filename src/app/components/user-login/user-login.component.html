@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+   <body >
+      <div class="content">
+         <div class="text">
+            Login
+         </div>
+         <form [formGroup]="loginFormUser">
+            <div class="field">
+               <div class="input-field" [class.error]="loginFormUser.controls['usrId'].dirty && loginFormUser.hasError('required','usrId')">
+                  <input type="text" formControlName="usrId" placeholder="User Id" >
+                  <span class="fas fa-user"></span>
+               </div>
+            </div>
+            <small *ngIf="loginFormUser.controls['usrId'].dirty && loginFormUser.hasError('required','usrId')" class="text-danger">*User Id is required!</small>
+            <div class="field">
+               <div class="input-field" [class.error]="loginFormUser.controls['usrPassword'].dirty && loginFormUser.hasError('required','usrPassword')">
+                  <input [type]="type" formControlName="usrPassword" placeholder="Password">
+                  <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                  <label>usrPassword</label> 
+               </div>
+            </div>
+            <small *ngIf="loginFormUser.controls['usrPassword'].dirty && loginFormUser.hasError('required','usrPassword')" class="text-danger">*usrPassword is Required!</small>
+             <div class="forgot-pass">
+               <a data-bs-toggle="modal" data-bs-target="#exampleModal">Forgot Password?</a>
+            </div>
+            <button class="button"(click)="onLogin()" (keyup.enter)="onLogin()" type="submit">Login</button>
+         </form>
+      </div>
+   </body>
+</html>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="exampleModalLabel"><span style="font-size: 25px;font-weight: 700;">Forget your usrPassword?</span><br>
+                  <small>Please provide your E-mail We will send the reset link</small></p>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group pt-3">
+                    <div class="input-field"><span class="fa fa-user p-2"></span><input [(ngModel)]="resetPasswordEmail" (ngModelChange)="checkValidEmail($event)" type="text" placeholder="Email"></div>
+                </div>
+                <small *ngIf="!resetPasswordEmail" class="text-danger">*Email is Required*</small>
+                <small *ngIf="!isValidEmail && resetPasswordEmail" class="text-danger">*Email is Invalid*</small>
+            </div>
+            <div class="modal-footer">
+                <button id="closeBtn" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" (click)="confirmToSend()" class="btn btn-primary">Send</button>
+            </div>
+        </div>
+    </div>
+</div>

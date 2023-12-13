@@ -1,0 +1,43 @@
+<h2 style="color:aliceblue ; text-align: center;font-size: 22px;margin-top: 2%;">My JobData</h2><br>
+  <div class="table-responsive" >
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table row-border hover">
+      <thead>
+        <tr *ngFor="let job of InputData">
+          <th>S.No</th>
+          <th>User Id</th>
+          <th  *ngIf="job.input1">{{ job.label1 }}</th>
+          <th  *ngIf="job.input2">{{ job.label2 }}</th>
+          <th  *ngIf="job.input3">{{ job.label3 }}</th>
+          <th  *ngIf="job.input4">{{ job.label4 }}</th>
+          <th  *ngIf="job.input5">{{ job.label5 }}</th>
+          <th  *ngIf="job.input6">{{ job.label6 }}</th>
+          <th  *ngIf="job.input7">{{ job.label7 }}</th>
+          <th  *ngIf="job.input8">{{ job.label8 }}</th>
+          <th  *ngIf="job.input9">{{ job.label9 }}</th>
+          <th  *ngIf="job.input10">{{ job.label10 }}</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let job of InputData">
+        <tr *ngFor="let work of WorkData;let i=index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ work.usrId }}</td>
+          <td contenteditable="true" *ngIf="job.input1" (input)="onData1Edit($event)">{{ work.data1 }}</td>
+          <td contenteditable="true" *ngIf="job.input2" (input)="onData2Edit($event)">{{ work.data2 }}</td>
+          <td contenteditable="true" *ngIf="job.input3" (input)="onData3Edit($event)">{{ work.data3 }}</td>
+          <td contenteditable="true" *ngIf="job.input4" (input)="onData4Edit($event)">{{ work.data4 }}</td>
+          <td contenteditable="true" *ngIf="job.input5" (input)="onData5Edit($event)">{{ work.data5 }}</td>
+          <td contenteditable="true" *ngIf="job.input6" (input)="onData6Edit($event)">{{ work.data6 }}</td>
+          <td contenteditable="true" *ngIf="job.input7" (input)="onData7Edit($event)">{{ work.data7 }}</td>
+          <td contenteditable="true" *ngIf="job.input8" (input)="onData8Edit($event)">{{ work.data8 }}</td>
+          <td contenteditable="true" *ngIf="job.input9" (input)="onData9Edit($event)">{{ work.data9 }}</td>
+          <td contenteditable="true" *ngIf="job.input10" (input)="onData10Edit($event)">{{ work.data10 }}</td>
+          <td style="display: flex;">
+            <a class="btn btn-info" (click)="onAccept(work)">Edit</a><br>
+            <a style="color: #fff; margin-left: 3%;" class="btn btn-danger" (click)="Reject(work)">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+

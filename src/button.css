@@ -1,0 +1,8 @@
+.btn-btn-primary{
+    background-color: rgb(231, 45, 45);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    height: 25px;
+    width: 60px;
+}

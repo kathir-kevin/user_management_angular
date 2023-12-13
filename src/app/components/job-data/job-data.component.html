@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<div class="container">
+  <div class="content">
+    <div class="text">
+      Job Data
+    </div>
+    <div *ngFor="let Job of InputData;">
+      <form [formGroup]="JobDataForm">
+        <div *ngFor="let control of JobDataForm.controls | keyvalue">
+          <ng-container *ngIf="Job['input' + control.key.slice(4)]">
+            <div class="field">
+              <div class="input-field" [class.error]="control.value.dirty && control.value.hasError('required')">
+                <input type="text" [formControlName]="control.key" [placeholder]="Job['label' + control.key.slice(4)]">
+                <span class="fas fa-user"></span>
+                <label>{{ Job['label' + control.key.slice(4)] }}</label>
+              </div>
+              <small *ngIf="control.value.dirty && control.value.hasError('required')" class="text-danger">
+                *{{ Job['label' + control.key.slice(4)] }} is required!
+              </small>
+            </div>
+          </ng-container>
+        </div>
+        <button class="button" (click)="onSave()" type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+</div>

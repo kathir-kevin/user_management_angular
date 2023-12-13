@@ -1,0 +1,36 @@
+
+<h2 style="color:aliceblue ; text-align: center;font-size: 22px;margin-top: 2%;">Employee Login Info</h2><br>
+                <div class="table-responsive" >
+                    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table row-border hover">
+                        <thead>
+                            <tr>
+                              <th>S.No</th>
+                              <th>Tenant Id</th>
+                              <th>Tenant Name</th>
+                              <th>ABN</th>
+                              <th>Email</th>
+                              <th>PhoneNo</th>
+                              <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let tenant of tenants; let i=index">
+                                <td>{{i+1}}</td>
+                                <td>{{tenant.tenantId}}</td>
+                                <td>{{tenant.tenantName}}</td>
+                                <td>{{tenant.abn}}</td>
+                                <td>{{tenant.email}}</td>
+                                <td>{{tenant.phoneNo}}</td>
+                                <td>
+                                    <ng-container *ngIf="tenant.tenantId; else acceptRejectButtons">
+                                      <a class="btn btn-info">Accepted</a>
+                                    </ng-container>
+                                    <ng-template #acceptRejectButtons>
+                                      <a class="btn btn-info" (click)="onAccept(tenant)">Accept</a><br>
+                                      <a style="color: #fff;" class="btn btn-danger" (click)="Reject(tenant)">Reject</a>
+                                    </ng-template>
+                                  </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>

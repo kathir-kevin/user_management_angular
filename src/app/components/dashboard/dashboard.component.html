@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+<body>
+<div class="topnav" id="myTopnav">
+  <a class="active">Invoice System</a>
+  <a class="active1">{{userName}}</a>
+  <a class="active1" (click)="logout()">Log Out</a>
+  <a class="active1" *ngIf="role==='SuperAdmin'" (click)='ManageTenantData()'>Tenant Data</a>
+  <a class="active1" *ngIf="role==='SuperAdmin'" (click)='add_users(true)'>Add TenantAdmin</a>
+  <a class="active1" *ngIf="role==='SuperAdmin'" (click)='SubscribeTenant()'>Subscribe Tenant</a>
+</div>
+<div class="sidebar close" *ngIf="role==='SuperAdmin'||'TenantAdmin'">
+    <div (click)='report()'class="logo-details">
+      <i class='bx bx-notepad'></i>
+      <span class="logo_name">Menu</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a>
+          <i class='bx bx-grid-alt' ></i>
+          <span class="link_name">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a >
+            <i class='bx bx-spreadsheet' ></i>
+            <span class="link_name">Invoices</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" >Invoices</a></li>
+          <li><a class="btn"   >Add Invoices</a></li>
+          <li><a class="btn" >Manage Invoices</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a >
+            <i class='bx bxs-store' ></i>
+            <span class="link_name">Products</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" >Products</a></li>
+          <li><a class="btn" >Add Products</a></li>
+          <li><a class="btn" >Manage Products</a></li>
+        </ul>
+      <li>
+        <div class="iocn-link">
+          <a >
+            <i class='bx bxs-user-detail' ></i>
+            <span class="link_name">Customer</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" >Customer</a></li>
+          <li><a class="btn"   >Add Customer</a></li>
+          <li><a class="btn" >Manage Customer</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a >
+            <i class='bx bxs-user'></i>
+            <span class="link_name">Users</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" >Users</a></li>
+          <li><a class="btn" (click)='add_users(false)' >Add Users</a></li>
+          <li><a class="btn" (click)='manage_users()'>Manage Users</a></li>
+          <li><a class="btn" (click)='job_checklist()'>Job CheckList</a></li>
+          <li><a class="btn" (click)='job_data()'>Job Data</a></li>
+          <li><a class="btn" (click)='users_workData()'>Manage Users JobData</a></li>
+          <li><a class="btn" (click)='my_JobDetails()'>Manage My JobData</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    
+</div>  
+<div class="table">
+    <router-outlet></router-outlet>
+</div>
+</body>
+
+</html> 

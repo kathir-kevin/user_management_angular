@@ -1,0 +1,198 @@
+
+  <div class="container">
+    <h2>
+        Job Data
+    </h2>
+    <div class="content"> 
+        <form [formGroup]="formValue5" >
+            <!-- <div *ngFor="let label of labeldata"> -->
+                <div class="field">
+                    <input type="checkbox" formControlName="Input1" (change)="onChange(1)">
+                    <input class="label" type="text" formControlName="Label1" value="">
+                    <input class="value" type="text" placeholder="value1">
+                </div>
+                <div class="field">
+                   <input type="checkbox" formControlName="Input2" (change)="onChange(2)">
+                    <input class="label" type="text" formControlName="Label2" value="">
+                    <input class="value"type="text" placeholder="value2">
+                </div>
+                <div class="field">
+                    <input type="checkbox" formControlName="Input3" (change)="onChange(3)">
+                    <input class="label" type="text" formControlName="Label3" value="">
+                    <input class="value"type="text" placeholder="value3">
+                </div>
+                <div class="field">
+                    <input type="checkbox" formControlName="Input4" (change)="onChange(4)">
+                    <input class="label" type="text" formControlName="Label4" value="">
+                    <input class="value" type="text" placeholder="value4">
+                </div>
+                <div class="field">
+                    <input type="checkbox" formControlName="Input5" (change)="onChange(5)">
+                    <input class="label" type="text" formControlName="Label5" value="">
+                    <input class="value" type="text" placeholder="value5">
+                </div>
+                <div class="field">
+                    <input type="checkbox" formControlName="Input6" (change)="onChange(6)">
+                    <input class="label" type="text" formControlName="Label6" value="" >
+                    <input class="value" type="text" placeholder="value6">
+                </div>
+                <div class="field">
+                    <input type="checkbox" formControlName="Input7" (change)="onChange(7)">
+                    <input class="label" type="text" formControlName="Label7" value="">
+                    <input class="value" type="text" placeholder="value7">
+                </div>
+                <div class="field">
+                    <input type="checkbox" formControlName="Input8" (change)="onChange(8)">
+                    <input class="label" type="text" formControlName="Label8" value="">
+                    <input class="value" type="text" placeholder="value8">
+                </div>
+                <div class="field">
+                    <input type="checkbox" formControlName="Input9" (change)="onChange(9)">
+                    <input class="label" type="text" formControlName="Label9" value="">
+                    <input class="value" type="text" placeholder="value9">
+                </div>
+                <div class="field">
+                    <input type="checkbox" formControlName="Input10" (change)="onChange(10)">
+                    <input class="label" type="text" formControlName="Label10" value="">
+                    <input class="value" type="text" placeholder="value10">
+                </div>
+            <!-- </div> -->
+            <!-- <div class="field">
+                <input class="label" type="text" formControlName="label1"  >
+                <input type="text" formControlName="value1" placeholder="value11" >
+            </div>
+            <div class="field">
+                <input class="label" type="text" formControlName="label2"  >
+                <input type="text" formControlName="value1" placeholder="value2" >
+            </div>
+            <div class="field">
+                <input class="label" type="text" formControlName="label3"  >
+                <input type="text" formControlName="value1"  placeholder="value3">
+            </div>
+            <div class="field">
+                <input class="label" type="text" formControlName="label4"  >
+                <input type="text" formControlName="value1" placeholder="value4" >
+            </div>
+            <div class="field">
+                <input class="label" type="text" formControlName="label5" >
+                <input type="text" formControlName="value1" placeholder="value5" >
+            </div>
+            <div class="field">
+                <input class="label" type="text" formControlName="label6"  >
+                <input type="text" formControlName="value1" placeholder="value6" >
+            </div>
+            <div class="field">
+                <input class="label" type="text" formControlName="label7"  >
+                <input type="text" formControlName="value1" placeholder="value7" >
+            </div>
+            <div class="field">
+                <input class="label" type="text" formControlName="label8"  >
+                <input type="text" formControlName="value1" placeholder="value8" >
+            </div>
+            <div class="field">
+                <input class="label" type="text" formControlName="label9"  >
+                <input type="text" formControlName="value1"  placeholder="value9">
+            </div>
+            <div class="field">
+                <input class="label" type="text" formControlName="label10"  >
+                <input type="text" formControlName="value1" placeholder="value10" >
+            </div>             -->
+            <button class="button" (click)=" postInvoiceDetails()"  type="submit">Submit</button>
+        </form>
+    </div>
+    </div> 
+    
+    <!-- <div class="content">
+        <div class="text">
+          Job Data
+        </div>
+        <div *ngFor="let label of labeldata">
+          <div class="field">
+            <input class="label" type="text" [(ngModel)]="label.label1" placeholder="Label 1">
+            <input type="text" [(ngModel)]="label.value1" placeholder="Value 1">
+          </div>
+          <div class="field">
+            <input class="label" type="text" [(ngModel)]="label.label2" placeholder="Label 2">
+            <input type="text" [(ngModel)]="label.value2" placeholder="Value 2">
+          </div>
+          <div class="field">
+            <input class="label" type="text" [(ngModel)]="label.label3" placeholder="Label 3">
+            <input type="text" [(ngModel)]="label.value2" placeholder="Value 3">
+          </div>
+          <div class="field">
+            <input class="label" type="text" [(ngModel)]="label.label4" placeholder="Label 4">
+            <input type="text" [(ngModel)]="label.value2" placeholder="Value 4">
+          </div>
+          <div class="field">
+            <input class="label" type="text" [(ngModel)]="label.label5" placeholder="Label 5">
+            <input type="text" [(ngModel)]="label.value2" placeholder="Value 5">
+          </div>
+          <div class="field">
+            <input class="label" type="text" [(ngModel)]="label.label6" placeholder="Label 6">
+            <input type="text" [(ngModel)]="label.value2" placeholder="Value 6">
+          </div>
+          <div class="field">
+            <input class="label" type="text" [(ngModel)]="label.label7" placeholder="Label 7">
+            <input type="text" [(ngModel)]="label.value2" placeholder="Value 7">
+          </div>
+          <div class="field">
+            <input class="label" type="text" [(ngModel)]="label.label8" placeholder="Label 8">
+            <input type="text" [(ngModel)]="label.value2" placeholder="Value 8">
+          </div>
+          <div class="field">
+            <input class="label" type="text" [(ngModel)]="label.label9" placeholder="Label 9">
+            <input type="text" [(ngModel)]="label.value2" placeholder="Value 9">
+          </div>
+          <div class="field">
+            <input class="label" type="text" [(ngModel)]="label.label10" placeholder="Label 10">
+            <input type="text" [(ngModel)]="label.value2" placeholder="Value 10">
+          </div>
+        </div>
+        <div *ngFor="let label of labeldata" >
+        <div  *ngIf="labeldata.length === 0">
+          <div class="field">
+            <input class="label" type="text" placeholder="Label 1">
+            <input type="text" placeholder="Value 1">
+          </div>
+          <div class="field">
+            <input class="label" type="text" placeholder="Label 2">
+            <input type="text" placeholder="Value 2">
+          </div>
+          <div class="field">
+            <input class="label" type="text" placeholder="Label 3">
+            <input type="text" placeholder="Value 3">
+          </div>
+          <div class="field">
+            <input class="label" type="text" placeholder="Label 4">
+            <input type="text" placeholder="Value 4">
+          </div>
+          <div class="field">
+            <input class="label" type="text" placeholder="Label 5">
+            <input type="text" placeholder="Value 5">
+          </div>
+          <div class="field">
+            <input class="label" type="text" placeholder="Label 6">
+            <input type="text" placeholder="Value 6">
+          </div>
+          <div class="field">
+            <input class="label" type="text" placeholder="Label 7">
+            <input type="text" placeholder="Value 7">
+          </div>
+          <div class="field">
+            <input class="label" type="text" placeholder="Label 8">
+            <input type="text" placeholder="Value 8">
+          </div>
+          <div class="field">
+            <input class="label" type="text" placeholder="Label 9">
+            <input type="text" placeholder="Value 9">
+          </div>
+          <div class="field">
+            <input class="label" type="text" placeholder="Label 10">
+            <input type="text" placeholder="Value 10">
+          </div>
+        </div>
+        </div>
+        <button class="button" (click)="postInvoiceDetails()" type="submit">Sign Up</button>
+      </div>
+      
+      -->
